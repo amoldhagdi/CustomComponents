@@ -5,10 +5,10 @@ using Trafigura.ITMS.App.Droid.CustomRendor;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(BoxBorderEntry), typeof(BoxBorderEntryRenderer))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
 namespace Trafigura.ITMS.App.Droid.CustomRendor
 {
-    public class BoxBorderEntryRenderer : EntryRenderer
+    public class CustomEntryRenderer : EntryRenderer
     {
         ShapeDrawable shape { get; set; }
         global::Android.Widget.EditText nativeEditText { get; set; }
@@ -19,7 +19,7 @@ namespace Trafigura.ITMS.App.Droid.CustomRendor
             {
                 nativeEditText = (global::Android.Widget.EditText)Control;
                 shape = new ShapeDrawable(new Android.Graphics.Drawables.Shapes.RectShape());
-                var newElement = e.NewElement as BoxBorderEntry;
+                var newElement = e.NewElement as CustomEntry;
                 if (newElement != null)
                 {
                     e.NewElement.Unfocused += (sender, evt) =>
@@ -49,15 +49,15 @@ namespace Trafigura.ITMS.App.Droid.CustomRendor
                 return;
             }
 
-            var entry = (BoxBorderEntry)Element;
+            var entry = (CustomEntry)Element;
 
-            if (e.PropertyName == BoxBorderEntry.IsErrorProperty.PropertyName)
+            if (e.PropertyName == CustomEntry.IsErrorProperty.PropertyName)
             {
                 SetBorderStyle(entry);
             }
         }
 
-        void SetBorderStyle(BoxBorderEntry entry)
+        void SetBorderStyle(CustomEntry entry)
         {
             if (entry.IsError == true)
             {

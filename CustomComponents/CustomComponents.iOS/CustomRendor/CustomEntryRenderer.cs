@@ -7,11 +7,11 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(BoxBorderEntry), typeof(BoxBorderEntryRenderer))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
 namespace Trafigura.ITMS.App.iOS.CustomRendor
 {
 
-    public class BoxBorderEntryRenderer : EntryRenderer
+    public class CustomEntryRenderer : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
@@ -20,7 +20,7 @@ namespace Trafigura.ITMS.App.iOS.CustomRendor
             if (Control != null)
             {
                 Control.TextColor = UIColor.Black;
-                var newElement = e.NewElement as BoxBorderEntry;
+                var newElement = e.NewElement as CustomEntry;
                 e.NewElement.Unfocused += (sender, evt) =>
                 {
                     Control.Layer.BorderColor = UIColor.Black.CGColor;
@@ -49,14 +49,14 @@ namespace Trafigura.ITMS.App.iOS.CustomRendor
                 return;
             }
 
-            var entry = (BoxBorderEntry)Element;
+            var entry = (CustomEntry)Element;
 
-            if (e.PropertyName == BoxBorderEntry.IsErrorProperty.PropertyName)
+            if (e.PropertyName == CustomEntry.IsErrorProperty.PropertyName)
             {
                 SetBorderStyle(entry);
             }
         }
-        void SetBorderStyle(BoxBorderEntry entry)
+        void SetBorderStyle(CustomEntry entry)
         {
             if (entry.IsError == true)
             {

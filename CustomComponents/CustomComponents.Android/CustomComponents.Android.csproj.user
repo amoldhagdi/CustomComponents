@@ -3,6 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>Ant2</SelectedDevice>
     <DefaultDevice>Ant2</DefaultDevice>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>
