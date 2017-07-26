@@ -142,7 +142,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRendor\CustomEditorRenderer.cs" />
     <Compile Include="CustomRendor\CustomEntryRenderer.cs" />
+    <Compile Include="CustomRendor\CustomSliderRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

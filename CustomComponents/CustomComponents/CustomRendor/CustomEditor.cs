@@ -7,11 +7,8 @@ using Xamarin.Forms;
 
 namespace CustomComponents.CustomRendor
 {
-    public class CustomEntry : Entry
+    public class CustomEditor : Editor
     {
-        /// <summary>
-        /// Custom Property for Error only
-        /// </summary>
         public static readonly BindableProperty IsErrorProperty = BindableProperty.Create("IsError", typeof(bool), typeof(CustomEntry), false);
 
         public bool IsError
@@ -19,9 +16,9 @@ namespace CustomComponents.CustomRendor
             get { return (bool)GetValue(IsErrorProperty); }
             set { SetValue(IsErrorProperty, value); }
         }
-        public CustomEntry()
+        public CustomEditor()
         {
-
+            
         }
     }
 }

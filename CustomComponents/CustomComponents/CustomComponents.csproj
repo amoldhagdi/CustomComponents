@@ -38,7 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomRendor\CustomEditor.cs" />
     <Compile Include="CustomRendor\CustomEntry.cs" />
+    <Compile Include="CustomRendor\CustomSlider.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

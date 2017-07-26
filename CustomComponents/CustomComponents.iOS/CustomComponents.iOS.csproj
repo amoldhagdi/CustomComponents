@@ -88,6 +88,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRendor\CustomSliderRenderer.cs" />
+    <Compile Include="CustomRendor\CustomEditorRenderer.cs" />
     <Compile Include="CustomRendor\CustomEntryRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

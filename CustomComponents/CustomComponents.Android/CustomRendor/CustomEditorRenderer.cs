@@ -5,22 +5,21 @@ using CustomComponents.Droid.CustomRendor;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
+[assembly: ExportRenderer(typeof(CustomEditor), typeof(CustomEditorRenderer))]
 namespace CustomComponents.Droid.CustomRendor
 {
-    public class CustomEntryRenderer : EntryRenderer
+    public class CustomEditorRenderer :EditorRenderer
     {
         ShapeDrawable shape { get; set; }
         global::Android.Widget.EditText nativeEditText { get; set; }
-        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
             base.OnElementChanged(e);
             if (e.OldElement == null)
             {
                 nativeEditText = (global::Android.Widget.EditText)Control;
                 shape = new ShapeDrawable(new Android.Graphics.Drawables.Shapes.RectShape());
-                var newElement = e.NewElement as CustomEntry;
+                var newElement = e.NewElement as CustomEditor;
                 if (newElement != null)
                 {
                     e.NewElement.Unfocused += (sender, evt) =>
@@ -34,6 +33,7 @@ namespace CustomComponents.Droid.CustomRendor
                         shape.Paint.Color = Xamarin.Forms.Color.Blue.ToAndroid();
                     };
                 }
+                Control.SetMinHeight(200);
                 Control.SetPadding(5, 5, 5, 5);
                 shape.Paint.Color = Xamarin.Forms.Color.Gray.ToAndroid();
                 shape.Paint.SetStyle(Paint.Style.Stroke);
@@ -50,15 +50,15 @@ namespace CustomComponents.Droid.CustomRendor
                 return;
             }
 
-            var entry = (CustomEntry)Element;
+            var entry = (CustomEditor)Element;
 
-            if (e.PropertyName == CustomEntry.IsErrorProperty.PropertyName)
+            if (e.PropertyName == CustomEditor.IsErrorProperty.PropertyName)
             {
                 SetBorderStyle(entry);
             }
         }
 
-        void SetBorderStyle(CustomEntry entry)
+        void SetBorderStyle(CustomEditor entry)
         {
             if (entry.IsError == true)
             {
@@ -73,6 +73,5 @@ namespace CustomComponents.Droid.CustomRendor
                 nativeEditText.Background = shape;
             }
         }
-
     }
 }

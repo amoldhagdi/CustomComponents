@@ -7,21 +7,16 @@ using Xamarin.Forms;
 
 namespace CustomComponents.CustomRendor
 {
-    public class CustomEntry : Entry
+    public class CustomSlider : Slider
     {
-        /// <summary>
-        /// Custom Property for Error only
-        /// </summary>
-        public static readonly BindableProperty IsErrorProperty = BindableProperty.Create("IsError", typeof(bool), typeof(CustomEntry), false);
+        public static readonly BindableProperty IsErrorProperty = BindableProperty.Create("IsError", typeof(bool), typeof(CustomSlider), false);
 
         public bool IsError
         {
             get { return (bool)GetValue(IsErrorProperty); }
             set { SetValue(IsErrorProperty, value); }
         }
-        public CustomEntry()
-        {
 
-        }
+        public CustomSlider(){}
     }
 }

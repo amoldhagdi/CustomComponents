@@ -13,5 +13,19 @@ namespace CustomComponents
         {
             InitializeComponent();
         }
+
+        private void SetErrorFlag(object sender, EventArgs e)
+        {
+            editorControl.IsError = true;
+            entryControl.IsError = true;
+            sliderControl.IsError = true;
+        }
+
+        private void ReSetErrorFlag(object sender, EventArgs e)
+        {
+            editorControl.IsError = false;
+            entryControl.IsError = false;
+            sliderControl.IsError = false;
+        }
     }
 }

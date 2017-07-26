@@ -5,20 +5,19 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
+[assembly: ExportRenderer(typeof(CustomEditor), typeof(CustomEditorRenderer))]
 namespace CustomComponents.iOS.CustomRendor
 {
-
-    public class CustomEntryRenderer : EntryRenderer
+    public class CustomEditorRenderer : EditorRenderer
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
             base.OnElementChanged(e);
 
             if (Control != null)
             {
                 Control.TextColor = UIColor.Black;
-                var newElement = e.NewElement as CustomEntry;
+                var newElement = e.NewElement as CustomEditor;
                 e.NewElement.Unfocused += (sender, evt) =>
                 {
                     Control.Layer.BorderColor = UIColor.Black.CGColor;
@@ -32,10 +31,7 @@ namespace CustomComponents.iOS.CustomRendor
 
                 Control.Layer.BorderColor = UIColor.Black.CGColor;
                 Control.Layer.BorderWidth = 3.0f;
-                Control.LeftView = new UIView(new CGRect(0, 0, 8, Control.Frame.Height));
-                Control.RightView = new UIView(new CGRect(0, 0, 8, Control.Frame.Height));
-                Control.LeftViewMode = UITextFieldViewMode.Always;
-                Control.RightViewMode = UITextFieldViewMode.Always;
+                Control.TextContainerInset = new UIEdgeInsets(5, 5, 5, 5); 
             }
         }
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -47,14 +43,14 @@ namespace CustomComponents.iOS.CustomRendor
                 return;
             }
 
-            var entry = (CustomEntry)Element;
+            var entry = (CustomEditor)Element;
 
             if (e.PropertyName == CustomEntry.IsErrorProperty.PropertyName)
             {
                 SetBorderStyle(entry);
             }
         }
-        void SetBorderStyle(CustomEntry entry)
+        void SetBorderStyle(CustomEditor entry)
         {
             if (entry.IsError == true)
             {
